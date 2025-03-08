@@ -174,34 +174,16 @@
     </div>
 
     <script>
-      let interval;
-      function handleElementInsertion(mutationsList, observer) {
-        for (const mutation of mutationsList) {
-          if (mutation.type === "childList") {
-            for (const node of mutation.addedNodes) {
-              if (node.nodeType === Node.ELEMENT_NODE) {
-                if (node.tagName === "EWT-INSTALL-DIALOG") {
-                  node.addEventListener("closed", (e) => {
-                    console.log("Install window was closed");
-                  });
-                  interval = setInterval(() => {
-                    if (
-                      node.___installState &&
-                      node.___installState.state === "finished"
-                    ) {
-                      clearInterval(interval);
-                    }
-                  }, 500);
-                }
-              }
-            }
-          }
-        }
+      const devMode = localStorage.getItem("ᗢ") === "true";
+
+      if (devMode) {
+        document
+          .querySelector("esp-web-install-button")
+          .setAttribute(
+            "manifest",
+            "https://xperiments.in/xspool-bin/webusb/xspool-manifest-dev.json"
+          );
       }
-      new MutationObserver(handleElementInsertion).observe(document.body, {
-        childList: true,
-        subtree: true,
-      });
     </script>
   </body>
 </html>
