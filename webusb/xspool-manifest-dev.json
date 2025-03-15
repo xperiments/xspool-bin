@@ -1,6 +1,6 @@
 {
   "name": "xspool",
-  "version": "0.0.878",
+  "version": "0.0.938",
   "new_install_improv_wait_time": 0,
   "new_install_prompt_erase": true,
   "builds": [
@@ -8,7 +8,7 @@
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "https://xperiments.in/xspool-bin/webusb/xspool-firmware-dev.bin?version=0.0.878",
+          "path": "https://xperiments.in/xspool-bin/webusb/xspool-firmware-dev.bin?version=0.0.938",
           "offset": 0
         }
       ]
