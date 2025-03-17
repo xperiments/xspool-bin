@@ -23,7 +23,7 @@
     ></script>
     <div class="fakeIframe">
       <div class="app">
-        <div class="app-content xspool-bg install">
+        <div class="app-content xspool-bg install" hidden>
           <svg
             height="100"
             width="100%"
@@ -94,7 +94,7 @@
             </svg>
           </a>
         </div>
-        <div class="app-content xspool-bg post-install" hidden>
+        <div class="app-content xspool-bg post-install" >
           <img src="./public/networks.webp" alt="Networks" />
           <div class="instructions">
             <h3>Installation complete</h3>
@@ -156,21 +156,13 @@
 
 
       const handleConnected = async () => {
-        document.querySelector(".error").setAttribute("hidden", true);
-        document.querySelector(".lds-ellipsis").removeAttribute("hidden");
-        try{
-          const response = await fetch(`http://192.168.4.1`, {
-            mode: "no-cors",
-          });
-          setTimeout(() => {
-            window.open(`ttp://192.168.4.1`,'_blank');
-          }, 1000);
-        }  catch (error) {
-          document.querySelector(".error").removeAttribute("hidden");
-          document.querySelector(".lds-ellipsis").setAttribute("hidden", true);
-        }
-      };
+          document.querySelector(".error").setAttribute("hidden", true);
+          document.querySelector(".lds-ellipsis").removeAttribute("hidden");
 
-    </script>
+          window.location.href = "http://192.168.4.1"; // Redirige en la nueva pestaña
+
+      };
+      </script>
+
   </body>
 </html>
