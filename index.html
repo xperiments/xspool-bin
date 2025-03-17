@@ -23,7 +23,7 @@
     ></script>
     <div class="fakeIframe">
       <div class="app">
-        <div class="app-content xspool-bg install" hidden>
+        <div class="app-content xspool-bg install">
           <svg
             height="100"
             width="100%"
@@ -94,13 +94,14 @@
             </svg>
           </a>
         </div>
-        <div class="app-content xspool-bg post-install" >
+        <div class="app-content xspool-bg post-install" hidden>
           <img src="./public/networks.webp" alt="Networks" />
           <div class="instructions">
             <h3>Installation complete</h3>
             <p>Change the network settings of your device to connect to the xspool-xxxx network</p>
 
             <p>Once connected, click the button below to open the xspool app</p>
+            <p>Or navigate to http://192.168.4.1 in your browser</p>
             <button class="redirect" onclick="handleConnected()">OPEN XSPOOL</button>
             <div class="error" hidden>
               <p>Unable to connect to the device.</p>
