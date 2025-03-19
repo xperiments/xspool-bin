@@ -113,16 +113,32 @@
 
     <script>
       const devMode = localStorage.getItem("ᗢ") === "true";
-
-      if (devMode) {
+      let manifest;
+      if(devMode) {
         document
           .querySelector("esp-web-install-button")
           .setAttribute(
             "manifest",
             "https://xperiments.in/xspool-bin/webusb/xspool-manifest-dev.json"
           );
+        manifest = async () => {
+          return fetch("https://xperiments.in/xspool-bin/webusb/xspool-manifest-dev.json")
+            .then((response) => response.json())
+            .then((data) => data);
+        };
+      } else {
+        manifest = async () => {
+          return fetch("https://xperiments.in/xspool-bin/webusb/xspool-manifest.json")
+            .then((response) => response.json())
+            .then((data) => data);
+        };
       }
 
+      manifest().then((data) => {
+        document
+          .querySelector(".installButton")
+          .innerHTML = `INSTALL XSPOOL ${data.version}${devMode ? "ᗢ":""}`;
+      });
       (function () {
         const originalLog = console.log;
         let detectedMac = null; // Variable to store the MAC address
