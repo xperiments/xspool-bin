@@ -119,16 +119,22 @@
           .querySelector("esp-web-install-button")
           .setAttribute(
             "manifest",
-            "https://xspool.com/install/webusb/xspool-manifest-dev.json"
+            `https://xspool.com/install/webusb/xspool-manifest-dev.json?${Date.now()}`
           );
         manifest = async () => {
-          return fetch("https://xspool.com/install/webusb/xspool-manifest-dev.json")
+          return fetch(`https://xspool.com/install/webusb/xspool-manifest-dev.json?${Date.now()}`)
             .then((response) => response.json())
             .then((data) => data);
         };
       } else {
+        document
+          .querySelector("esp-web-install-button")
+          .setAttribute(
+            "manifest",
+            `https://xspool.com/install/webusb/xspool-manifest.json?${Date.now()}`
+          );
         manifest = async () => {
-          return fetch("https://xspool.com/install/webusb/xspool-manifest.json")
+          return fetch(`https://xspool.com/install/webusb/xspool-manifest.json?${Date.now()}`)
             .then((response) => response.json())
             .then((data) => data);
         };
