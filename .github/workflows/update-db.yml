@@ -31,7 +31,7 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           # Add the generated JSON file (adjust path if needed)
-          git add -f ./db/tigerTagBase.json
+          git add -f ./db/tigerTagDatabase.json
           # Commit only if there are changes; skip commit if none
           git commit -m "chore: update TigerTag JSON [skip ci]" || echo "No changes to commit"
           git push
