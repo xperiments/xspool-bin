@@ -1,0 +1,39 @@
+name: Update TigerTag JSON
+
+on:
+  schedule:
+    # Runs every 2 hours at minute 0 (e.g. 00:00, 02:00, 04:00, …)
+    - cron: "0 */2 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-json:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run JSON Generation Script
+        run: node generateJson.js
+
+      - name: Commit and Push JSON Changes
+        run: |
+          # Configure Git
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          # Add the generated JSON file (adjust path if needed)
+          git add -f ../../xspool-bin/tigerTagBase.json
+          # Commit only if there are changes; skip commit if none
+          git commit -m "chore: update TigerTag JSON [skip ci]" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
