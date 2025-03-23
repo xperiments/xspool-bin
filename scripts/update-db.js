@@ -102,7 +102,7 @@ async function fetchEndpointData() {
   exportBaseJsonFile();
 }
 
-// --- Export Base JSON File ---
+// --- Export Base JSON File ----
 function exportBaseJsonFile() {
   const baseJsonPath = "../db/tigerTagDatabase.json";
   fs.writeFileSync(baseJsonPath, JSON.stringify(endpointData));

@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Run JSON Generation Script
-        run: node generateJson.js
+        run: node scripts/update-db.js
 
       - name: Commit and Push JSON Changes
         run: |
