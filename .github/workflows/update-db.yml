@@ -29,15 +29,12 @@ jobs:
 
       - name: Commit and Push JSON Changes
         run: |
-          # Configure Git
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          # Ensure the remote URL uses the GITHUB_TOKEN
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/xperiments/xspool-bin.git
-          # Add the generated JSON file (adjust path if needed)
+          # Use XSPOOL_PAT instead of the default GITHUB_TOKEN
+          git remote set-url origin https://x-access-token:${{ secrets.XSPOOL_PAT }}@github.com/xperiments/xspool-bin.git
           git add -f ./db/tigerTagDatabase.json
-          # Commit only if there are changes; skip commit if none
           git commit -m "chore: update TigerTag JSON [skip ci]" || echo "No changes to commit"
-          git push
+          git push origin HEAD:${{ github.ref }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          XSPOOL_PAT: ${{ secrets.XSPOOL_PAT }}
