@@ -104,7 +104,7 @@ async function fetchEndpointData() {
 
 // --- Export Base JSON File ---
 function exportBaseJsonFile() {
-  const baseJsonPath = "../db/tigerTagDatabase.json";
+  const baseJsonPath = "./db/tigerTagDatabase.json";
   fs.writeFileSync(baseJsonPath, JSON.stringify(endpointData));
   console.log("Base JSON file generated successfully at:", baseJsonPath);
 }
