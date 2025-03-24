@@ -1,9 +1,9 @@
-name: Update TigerTag JSON
+name: Update Database
 
 on:
-  schedule:
-    # Runs every 2 hours at minute 0 (e.g. 00:00, 02:00, 04:00, …)
-    - cron: "0 */2 * * *"
+schedule:
+    # Runs every day at midnight (00:00)
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 jobs:
@@ -34,3 +34,11 @@ jobs:
           git add -f ./db/bdd.json
           git commit -m "chore: update TigerTag JSON [skip ci]" || echo "No changes to commit"
           git push origin HEAD:${{ github.ref }}
+
+      - name: Trigger deploy workflow
+        run: |
+          curl -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token ${{ secrets.XSPOOL_PAT }}" \
+          https://api.github.com/repos/xperiments/xspool/dispatches \
+          -d '{"event_type": "deploy_trigger"}'
