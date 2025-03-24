@@ -1,6 +1,8 @@
 name: Update Database
 
 on:
+  push:
+    branches: [main]
   schedule:
     # Runs every day at 00:00 UTC
     - cron: "0 0 * * *"
