@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Run JSON Generation Script
-        run: node scripts/update-db.js
+        run: npm run generate-bdd
 
       - name: Commit and Push JSON Changes
         run: |

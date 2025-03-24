@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate-bdd": "mkdir tmp && node scripts/bbl-parser.js && node scripts/cfs-parser.js && node scripts/tiger-parser.js && node scripts/bdd-pack.js && rm -rf tmp"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "node-fetch": "^3.3.2"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "axios": "^1.8.4"
+  }
 }

@@ -1,0 +1,119 @@
+{
+  "colors": [
+    "#FFC196",
+    "#5B618F",
+    "#009CBD",
+    "#89A84F",
+    "#F40031",
+    "#FF6A14",
+    "#FFA761",
+    "#FED141",
+    "#FFEC3D",
+    "#5CE003",
+    "#00BB31",
+    "#008080",
+    "#87CEEB",
+    "#0086D6",
+    "#0047BB",
+    "#6558B1",
+    "#EF60A3",
+    "#EE00EE",
+    "#EC008C",
+    "#BA0C2F",
+    "#F7E6DE",
+    "#C0A392",
+    "#8C3400",
+    "#E4BC67",
+    "#FFFFFF",
+    "#9EA6B4",
+    "#75787B",
+    "#212721"
+  ],
+  "materialType": [
+    {
+      "value": "ABS",
+      "recommended": {
+        "hotend": { "min": 220, "max": 250 },
+        "bed": { "min": 90, "max": 100 }
+      }
+    },
+    {
+      "value": "ASA",
+      "recommended": {
+        "hotend": { "min": 240, "max": 280 },
+        "bed": { "min": 90, "max": 100 }
+      }
+    },
+    {
+      "value": "PETG",
+      "recommended": {
+        "hotend": { "min": 230, "max": 250 },
+        "bed": { "min": 70, "max": 90 }
+      }
+    },
+    {
+      "value": "PLA",
+      "recommended": {
+        "hotend": { "min": 190, "max": 230 },
+        "bed": { "min": 50, "max": 60 }
+      }
+    },
+    {
+      "value": "PLA Glow",
+      "recommended": {
+        "hotend": { "min": 190, "max": 230 },
+        "bed": { "min": 50, "max": 60 }
+      }
+    },
+    {
+      "value": "PLA High Speed",
+      "recommended": {
+        "hotend": { "min": 190, "max": 230 },
+        "bed": { "min": 50, "max": 60 }
+      }
+    },
+    {
+      "value": "PLA Marble",
+      "recommended": {
+        "hotend": { "min": 200, "max": 230 },
+        "bed": { "min": 50, "max": 60 }
+      }
+    },
+    {
+      "value": "PLA Matte",
+      "recommended": {
+        "hotend": { "min": 190, "max": 230 },
+        "bed": { "min": 55, "max": 65 }
+      }
+    },
+    {
+      "value": "PLA SE",
+      "recommended": {
+        "hotend": { "min": 190, "max": 230 },
+        "bed": { "min": 55, "max": 65 }
+      }
+    },
+    {
+      "value": "PLA Silk",
+      "recommended": {
+        "hotend": { "min": 200, "max": 230 },
+        "bed": { "min": 55, "max": 65 }
+      }
+    },
+    {
+      "value": "TPU",
+      "recommended": {
+        "hotend": { "min": 210, "max": 230 },
+        "bed": { "min": 25, "max": 60 }
+      }
+    }
+  ],
+  "weightMap": [
+    { "value": 1650, "label": "5 KG" },
+    { "value": 330, "label": "1 KG" },
+    { "value": 247, "label": "750 G" },
+    { "value": 198, "label": "600 G" },
+    { "value": 165, "label": "500 G" },
+    { "value": 82, "label": "250 G" }
+  ]
+}
