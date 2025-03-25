@@ -69,10 +69,10 @@ function generateTypeScriptMaterials(jsonData) {
   const rfidDataList = jsonData.result.list.map((mat) => {
     const { id, brand: manufacturer, name, meterialType: type } = mat.base;
 
-    // id needs to be exactly 6 characters long (padded with 0s)
-    const paddedId = id.toString().padStart(6, "0");
+    // // id needs to be exactly 6 characters long (padded with 0s)
+    // const paddedId = id.toString().padStart(6, "0");
 
-    return [paddedId, manufacturer, name, type];
+    return [id, manufacturer, name, type];
   });
 
   // Sort by manufacturer and then by name
