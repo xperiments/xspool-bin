@@ -3,7 +3,7 @@ import fs from "fs";
 
 // API endpoint for the Swagger definition
 const SWAGGER_URL = "https://api.tigertag.io/apispec:tigertag?type=json&token=";
-const OUTPUT_DB_JSON = "./tmp/tiger-bdd.json";
+const OUTPUT_DB_JSON = "./tiger-bdd.json";
 
 let endpoints = {}; // In-memory storage for endpoint definitions
 let endpointData = {}; // Store fetched data from endpoints
@@ -93,14 +93,12 @@ async function fetchEndpointData() {
 
 // --- JSON File Generation ---
 function exportBaseJsonFile() {
+  // add a key to the endpointData object with date in format YYYY-MM-DD
+  const date = new Date();
+  const formattedDate = date.toISOString().split("T")[0];
+  endpointData["date"] = formattedDate;
   fs.writeFileSync(OUTPUT_DB_JSON, JSON.stringify(endpointData, null, 2));
   console.log("Base JSON file generated successfully at:", OUTPUT_DB_JSON);
 }
 
 fetchSwaggerDefinition();
-
-// Export functions for external use.
-export default {
-  getEndpoints: () => endpoints,
-  getEndpointData: () => endpointData,
-};
