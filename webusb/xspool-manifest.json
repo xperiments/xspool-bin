@@ -1,6 +1,6 @@
 {
   "name": "xspool",
-  "version": "0.0.1400",
+  "version": "0.0.1458",
   "new_install_improv_wait_time": 0,
   "new_install_prompt_erase": true,
   "builds": [
@@ -8,7 +8,7 @@
       "chipFamily": "ESP32",
       "parts": [
         {
-          "path": "https://xspool.com/install/webusb/xspool-firmware.bin?version=0.0.1400",
+          "path": "https://xspool.com/install/webusb/xspool-firmware.bin?version=0.0.1458",
           "offset": 0
         }
       ]
