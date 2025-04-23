@@ -50,11 +50,12 @@ function readLocalJSONFile(callback) {
 // Function to generate the JSON file
 function generateJSONMaterials(rfidDataList) {
   // Convert the array of arrays to an array of objects
-  const materials = rfidDataList.map(([id, manufacturer, name, type]) => ({
+  const materials = rfidDataList.map(([id, manufacturer, name, type, pa]) => ({
     id,
     manufacturer,
     name,
     type,
+    pa,
   }));
 
   const jsonOutputFilePath = join(__dirname, "../tmp/creality-bdd.json");
@@ -68,11 +69,12 @@ function generateJSONMaterials(rfidDataList) {
 function generateTypeScriptMaterials(jsonData) {
   const rfidDataList = jsonData.result.list.map((mat) => {
     const { id, brand: manufacturer, name, meterialType: type } = mat.base;
+    const { pressure_advance } = mat.kvParam;
 
     // // id needs to be exactly 6 characters long (padded with 0s)
     // const paddedId = id.toString().padStart(6, "0");
 
-    return [id, manufacturer, name, type];
+    return [id, manufacturer, name, type, pressure_advance];
   });
 
   // Sort by manufacturer and then by name
