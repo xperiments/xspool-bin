@@ -1,3 +1,4 @@
+import { time, timeStamp } from "console";
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import { resolve } from "path";
 
@@ -15,7 +16,9 @@ const files = {
   "anycubic-bdd": "../scripts/anycubic-bdd.json",
 };
 
-const mergedData = {};
+const mergedData = {
+  timeStamp: new Date().getTime(),
+};
 
 for (const [key, filePath] of Object.entries(files)) {
   const fullPath = resolve(__dirname, filePath);
