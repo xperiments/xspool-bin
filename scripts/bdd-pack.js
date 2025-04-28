@@ -16,9 +16,9 @@ const files = {
   "anycubic-bdd": "../scripts/anycubic-bdd.json",
 };
 
-const timeStamp = new Date().getTime();
+const currentTimeStamp = new Date().getTime();
 const mergedData = {
-  timeStamp,
+  timeStamp: currentTimeStamp,
 };
 
 for (const [key, filePath] of Object.entries(files)) {
@@ -39,4 +39,7 @@ const mergedStampFileName = "db/bdd-time.json";
 
 // Write the header file.
 writeFileSync(mergedFileName, JSON.stringify(mergedData));
-writeFileSync(mergedStampFileName, JSON.stringify({ timeStamp }));
+writeFileSync(
+  mergedStampFileName,
+  JSON.stringify({ timeStamp: currentTimeStamp })
+);
