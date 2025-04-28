@@ -16,8 +16,9 @@ const files = {
   "anycubic-bdd": "../scripts/anycubic-bdd.json",
 };
 
+const timeStamp = new Date().getTime();
 const mergedData = {
-  timeStamp: new Date().getTime(),
+  timeStamp,
 };
 
 for (const [key, filePath] of Object.entries(files)) {
@@ -34,6 +35,8 @@ for (const [key, filePath] of Object.entries(files)) {
 
 // The merged JSON file name (used for route and variable naming)
 const mergedFileName = "db/bdd.json";
+const mergedStampFileName = "db/bdd-time.json";
 
 // Write the header file.
 writeFileSync(mergedFileName, JSON.stringify(mergedData));
+writeFileSync(mergedStampFileName, JSON.stringify({ timeStamp }));
