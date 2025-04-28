@@ -37,7 +37,7 @@ for (const [key, filePath] of Object.entries(files)) {
 const mergedFileName = "db/bdd.json";
 const mergedStampFileName = "db/bdd-time.json";
 
-// Write the header file.
+// Write the header file..
 writeFileSync(mergedFileName, JSON.stringify(mergedData));
 writeFileSync(
   mergedStampFileName,
