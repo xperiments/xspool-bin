@@ -8,6 +8,9 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
 
+const mergedVersionFileName = "db/bdd-ver.json";
+let versionJson = JSON.parse(readFileSync(mergedVersionFileName, "utf8"));
+const version = versionJson.version + 1;
 // --- Part 1: Merge JSON Files ---
 const files = {
   "tiger-bdd": "../tmp/tiger-bdd.json",
@@ -18,7 +21,7 @@ const files = {
 
 const currentTimeStamp = new Date().getTime();
 const mergedData = {
-  timeStamp: currentTimeStamp,
+  version,
 };
 
 for (const [key, filePath] of Object.entries(files)) {
@@ -35,11 +38,7 @@ for (const [key, filePath] of Object.entries(files)) {
 
 // The merged JSON file name (used for route and variable naming)
 const mergedFileName = "db/bdd.json";
-const mergedStampFileName = "db/bdd-time.json";
 
 // Write the header file..
 writeFileSync(mergedFileName, JSON.stringify(mergedData));
-writeFileSync(
-  mergedStampFileName,
-  JSON.stringify({ timeStamp: currentTimeStamp })
-);
+writeFileSync(mergedVersionFileName, JSON.stringify({ version }));
